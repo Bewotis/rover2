@@ -59,8 +59,8 @@ class Rover:
 
     def readcommands(self, commands):  # function to read the commands and execute the corresponding functions
         for val in commands:
-
-            if self.orientation == 'N' or 'n':
+            self.giveroverlocation()
+            if self.orientation == 'N':
 
                 if val == 'f':
                     self.y += 1
@@ -74,7 +74,7 @@ class Rover:
                 elif val == 'l':
                     self.orientation = 'W'
 
-            elif self.orientation == 'E' or 'e':
+            elif self.orientation == 'E':
 
                 if val == 'f':
                     self.x += 1
@@ -88,7 +88,7 @@ class Rover:
                 elif val == 'l':
                     self.orientation = 'N'
 
-            elif self.orientation == 'S' or 's':
+            elif self.orientation == 'S':
 
                 if val == 'f':
                     self.y -= 1
@@ -102,7 +102,7 @@ class Rover:
                 elif val == 'l':
                     self.orientation = 'E'
 
-            elif self.orientation == 'W' or 'w':
+            elif self.orientation == 'W':
 
                 if val == 'f':
                     self.x -= 1
