@@ -5,31 +5,31 @@ class Rover:
         self.y = y
         self.orientation = orientation
 
-    def forward(self):
+    '''def forward(self):
         if self.orientation == 'N' or 'n':
-            self.x += 1
-
-        elif self.orientation == 'E' or 'e':
             self.y += 1
 
+        elif self.orientation == 'E' or 'e':
+            self.x += 1
+
         elif self.orientation == 'S' or 's':
-            self.x -= 1
+            self.y -= 1
 
         elif self.orientation == 'W' or 'w':
-            self.y -= 1
+            self.x -= 1
 
     def backward(self):
         if self.orientation == 'N' or 'n':
-            self.x -= 1
-
-        elif self.orientation == 'E' or 'e':
             self.y -= 1
 
+        elif self.orientation == 'E' or 'e':
+            self.x -= 1
+
         elif self.orientation == 'S' or 's':
-            self.x += 1
+            self.y += 1
 
         elif self.orientation == 'W' or 'w':
-            self.y += 1
+            self.x += 1
 
     def turnleft(self):
         if self.orientation == 'N' or 'n':
@@ -55,22 +55,67 @@ class Rover:
             self.orientation = 'W'
 
         elif self.orientation == 'W' or 'w':
-            self.orientation = 'N'
+            self.orientation = 'N'''''
 
     def readcommands(self, commands):  # function to read the commands and execute the corresponding functions
-        for x in commands:
+        for val in commands:
 
-            if x == 'f':
-                self.forward()
+            if self.orientation == 'N' or 'n':
 
-            elif x == 'b':
-                self.backward()
+                if val == 'f':
+                    self.y += 1
 
-            elif x == 'r':
-                self.turnright()
+                elif val == 'b':
+                    self.y -= 1
 
-            elif x == 'l':
-                self.turnleft()
+                elif val == 'r':
+                    self.orientation = 'E'
+
+                elif val == 'l':
+                    self.orientation = 'W'
+
+            elif self.orientation == 'E' or 'e':
+
+                if val == 'f':
+                    self.x += 1
+
+                elif val == 'b':
+                    self.x -= 1
+
+                elif val == 'r':
+                    self.orientation = 'S'
+
+                elif val == 'l':
+                    self.orientation = 'N'
+
+            elif self.orientation == 'S' or 's':
+
+                if val == 'f':
+                    self.y -= 1
+
+                elif val == 'b':
+                    self.y += 1
+
+                elif val == 'r':
+                    self.orientation = 'W'
+
+                elif val == 'l':
+                    self.orientation = 'E'
+
+            elif self.orientation == 'W' or 'w':
+
+                if val == 'f':
+                    self.x -= 1
+
+                elif val == 'b':
+                    self.x += 1
+
+                elif val == 'r':
+                    self.orientation = 'N'
+
+                elif val == 'l':
+                    self.orientation = 'S'
+        #print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))
 
     def giveroverlocation(self):
         print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))
