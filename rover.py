@@ -1,7 +1,5 @@
 class Rover:
 
-    commands = []
-
     def __init__(self, x, y, orientation):
         self.x = x
         self.y = y
@@ -61,17 +59,18 @@ class Rover:
 
     def readcommands(self, commands):  # function to read the commands and execute the corresponding functions
         for x in commands:
+
             if x == 'f':
-                self.forward(self)
+                self.forward()
 
-            if x == 'b':
-                self.backward(self)
+            elif x == 'b':
+                self.backward()
 
-            if x == 'r':
-                self.turnright(self)
+            elif x == 'r':
+                self.turnright()
 
-            if x == 'l':
-                self.turnleft(self)
+            elif x == 'l':
+                self.turnleft()
 
     def giveroverlocation(self):
         print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))

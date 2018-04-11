@@ -7,7 +7,6 @@ class RoverTest:
     rover = Rover(0, 0, 'N')
     Rover.giveroverlocation(rover)
 
-    givecommands = Rover.commands['f', 'f', 'r', 'f']  # these are the commands that should be executed
+    givecommands = ['f', 'f', 'b', 'l']  # these are the commands that should be executed
     Rover.readcommands(rover, givecommands)
     Rover.giveroverlocation(rover)
-
