@@ -33,29 +33,29 @@ class Rover:
 
     def turnleft(self):
         if self.orientation == 'N' or 'n':
-            self.orientation == 'W'
+            self.orientation = 'W'
 
         elif self.orientation == 'E' or 'e':
-            self.orientation == 'N'
+            self.orientation = 'N'
 
         elif self.orientation == 'S' or 's':
-            self.orientation == 'E'
+            self.orientation = 'E'
 
         elif self.orientation == 'W' or 'w':
-            self.orientation == 'S'
+            self.orientation = 'S'
 
     def turnright(self):
         if self.orientation == 'N' or 'n':
-            self.orientation == 'E'
+            self.orientation = 'E'
 
         elif self.orientation == 'E' or 'e':
-            self.orientation == 'S'
+            self.orientation = 'S'
 
         elif self.orientation == 'S' or 's':
-            self.orientation == 'W'
+            self.orientation = 'W'
 
         elif self.orientation == 'W' or 'w':
-            self.orientation == 'N'
+            self.orientation = 'N'
 
     def readcommands(self, commands):  # function to read the commands and execute the corresponding functions
         for x in commands:
