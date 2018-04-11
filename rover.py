@@ -1,5 +1,7 @@
 class Rover:
 
+    commands = []
+
     def __init__(self, x, y, orientation):
         self.x = x
         self.y = y
@@ -57,7 +59,7 @@ class Rover:
         elif self.orientation == 'W' or 'w':
             self.orientation == 'N'
 
-    def readcommands(self,commands):    #function to read the commands and execute the corresponding functions
+    def readcommands(self, commands):  # function to read the commands and execute the corresponding functions
         for x in commands:
             if x == 'f':
                 self.forward(self)
