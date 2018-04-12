@@ -8,6 +8,6 @@ class RoverTestCase():
     planet.addobstacle(0, 1)
     rover = Rover(0, 0, 'N', planet)
 
-    givecommands = ['f', 'r', 'f', 'f']  # these are the commands that should be executed
+    givecommands = ['f', 'f', 'f', 'l', 'f', 'f', 'f']  # these are the commands that should be executed
     Rover.readcommands(rover, givecommands, planet)
     Rover.giveroverlocation(rover)

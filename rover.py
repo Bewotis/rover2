@@ -33,17 +33,29 @@ class Rover:
                 if val == 'f':
                     self.y += 1
 
+                    if self.y > planet.maxy:
+                        self.y -= planet.maxy
+
                     if [self.x, self.y] in planet.obstaclelist:  # checks if the rover encounters an obstacle
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.y -= 1
+
+                        if self.y < 1:
+                            self.y = planet.maxy
                         return True
 
                 elif val == 'b':
                     self.y -= 1
 
+                    if self.y < 1:
+                        self.y = planet.maxy
+
                     if [self.x, self.y] in planet.obstaclelist:
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.y += 1
+
+                        if self.y > planet.maxy:
+                            self.y -= planet.maxy
                         return True
 
                 elif val == 'r':
@@ -60,17 +72,29 @@ class Rover:
                 if val == 'f':
                     self.x += 1
 
+                    if self.x > planet.maxx:
+                        self.x -= planet.maxx
+
                     if [self.x, self.y] in planet.obstaclelist:
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.x -= 1
+
+                        if self.x < 1:
+                            self.x = planet.maxx
                         return True
 
                 elif val == 'b':
                     self.x -= 1
 
+                    if self.x < 1:
+                        self.x = planet.maxx
+
                     if [self.x, self.y] in planet.obstaclelist:
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.x += 1
+
+                        if self.x > planet.maxx:
+                            self.x -= planet.maxx
                         return True
 
                 elif val == 'r':
@@ -87,18 +111,28 @@ class Rover:
                 if val == 'f':
                     self.y -= 1
 
+                    if self.y < 1:
+                        self.y = planet.maxy
+
                     if [self.x, self.y] in planet.obstaclelist:
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.y += 1
 
+                        if self.y > planet.maxy:
+                            self.y -= planet.maxy
                         return True
 
                 elif val == 'b':
                     self.y += 1
 
+                    if self.y > planet.maxy:
+                        self.y -= planet.maxy
+
                     if [self.x, self.y] in planet.obstaclelist:
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.y -= 1
+                        if self.y < 1:
+                            self.y = planet.maxy
                         return True
 
                 elif val == 'r':
@@ -115,17 +149,29 @@ class Rover:
                 if val == 'f':
                     self.x -= 1
 
+                    if self.x < 1:
+                        self.x = planet.maxx
+
                     if [self.x, self.y] in planet.obstaclelist:
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.x += 1
+
+                        if self.x > planet.maxx:
+                            self.x -= planet.maxx
                         return True
 
                 elif val == 'b':
                     self.x += 1
 
+                    if self.x > planet.maxx:
+                        self.x -= planet.maxx
+
                     if [self.x, self.y] in planet.obstaclelist:
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
                         self.x -= 1
+
+                        if self.x < 1:
+                            self.x = planet.maxx
                         return True
 
                 elif val == 'r':
