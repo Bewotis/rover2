@@ -60,6 +60,7 @@ class Rover:
     def readcommands(self, commands):  # function to read the commands and execute the corresponding functions
         for val in commands:
             self.giveroverlocation()
+            print('-------------------------------')
             if self.orientation == 'N':
 
                 if val == 'f':
@@ -73,6 +74,9 @@ class Rover:
 
                 elif val == 'l':
                     self.orientation = 'W'
+
+                else:
+                    print('invalid command %s' % val)
 
             elif self.orientation == 'E':
 
@@ -88,6 +92,9 @@ class Rover:
                 elif val == 'l':
                     self.orientation = 'N'
 
+                else:
+                    print('invalid command %s' % val)
+
             elif self.orientation == 'S':
 
                 if val == 'f':
@@ -102,6 +109,9 @@ class Rover:
                 elif val == 'l':
                     self.orientation = 'E'
 
+                else:
+                    print('invalid command %s' % val)
+
             elif self.orientation == 'W':
 
                 if val == 'f':
@@ -115,6 +125,9 @@ class Rover:
 
                 elif val == 'l':
                     self.orientation = 'S'
+
+                else:
+                    print('invalid command %s' % val)
 
         return True
         # print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))
