@@ -35,6 +35,10 @@ class RoverTestCase(unittest.TestCase):
         givecommands = ['f', 'f', 'r', 'f', 'f', 'b']
         self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
 
+    def test_does_wrapping_work(self):
+        givecommands = ('l', 'f')
+        self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
+
 
 if __name__ == '__main__':
     unittest.main()
