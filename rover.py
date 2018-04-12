@@ -38,9 +38,9 @@ class Rover:
 
                     if [self.x, self.y] in planet.obstaclelist:  # checks if the rover encounters an obstacle
                         print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
-                        self.y -= 1
+                        self.y -= 1  # moves back one field if an obstacle is encountered
 
-                        if self.y < 1:
+                        if self.y < 1:  # checks if the new coordinates are on the planet grid
                             self.y = planet.maxy
                         return True
 
