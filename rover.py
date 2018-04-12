@@ -115,7 +115,9 @@ class Rover:
 
                 elif val == 'l':
                     self.orientation = 'S'
-        #print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))
+
+        return True
+        # print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))
 
     def giveroverlocation(self):
         print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))
