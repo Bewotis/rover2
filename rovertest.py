@@ -18,11 +18,11 @@ class RoverTestCase(unittest.TestCase):
         self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
 
     def test_will_rover_refuse_unknown_commands(self):
-        givecommands = ['s', 'n', 'a', 'r']  # these are the commands that should be executed
+        givecommands = ['s', 'n', 'a', 'r']
         self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
 
     def test_will_rover_refuse_numeric_commands(self):
-        givecommands = [3, 2, 5.2, 'r']  # these are the commands that should be executed
+        givecommands = [3, 2, 5.2, 'r']
         self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
 
     def test_will_rover_stop_at_obstacle(self):
