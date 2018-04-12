@@ -1,63 +1,30 @@
 class Rover:
 
-    def __init__(self, x, y, orientation):
-        self.x = x
-        self.y = y
-        self.orientation = orientation
+    def __init__(self, x, y, orientation, planet):
+        if planet.maxx >= x >= 0:  # checks if x coordinate is on the planet
+            self.x = x
 
-    '''def forward(self):
-        if self.orientation == 'N' or 'n':
-            self.y += 1
+        else:
+            print('your x coordinate: %d is not on the planet grid it has been placed at x=0' % x)
+            self.x = 0
 
-        elif self.orientation == 'E' or 'e':
-            self.x += 1
+        if planet.maxy >= y >= 0:  # checks if y coordinate is on the planet
+            self.y = y
 
-        elif self.orientation == 'S' or 's':
-            self.y -= 1
+        else:
+            print('your y coordinate: %d is not on the planet grid it has been placed at y=0' % y)
+            self.y = 0
 
-        elif self.orientation == 'W' or 'w':
-            self.x -= 1
+        if orientation in ('N', 'E', 'S', 'W'):  # checks if orientation is valid
+            self.orientation = orientation
 
-    def backward(self):
-        if self.orientation == 'N' or 'n':
-            self.y -= 1
-
-        elif self.orientation == 'E' or 'e':
-            self.x -= 1
-
-        elif self.orientation == 'S' or 's':
-            self.y += 1
-
-        elif self.orientation == 'W' or 'w':
-            self.x += 1
-
-    def turnleft(self):
-        if self.orientation == 'N' or 'n':
-            self.orientation = 'W'
-
-        elif self.orientation == 'E' or 'e':
+        else:
+            print('Your orientation does not match an actual orientation (N, E, S, W) the rover is now facing North')
             self.orientation = 'N'
 
-        elif self.orientation == 'S' or 's':
-            self.orientation = 'E'
+        print('-------------------------------')
 
-        elif self.orientation == 'W' or 'w':
-            self.orientation = 'S'
-
-    def turnright(self):
-        if self.orientation == 'N' or 'n':
-            self.orientation = 'E'
-
-        elif self.orientation == 'E' or 'e':
-            self.orientation = 'S'
-
-        elif self.orientation == 'S' or 's':
-            self.orientation = 'W'
-
-        elif self.orientation == 'W' or 'w':
-            self.orientation = 'N'''''
-
-    def readcommands(self, commands):  # function to read the commands and execute the corresponding functions
+    def readcommands(self, commands, planet):  # function to read the commands and execute the corresponding functions
         for val in commands:
             self.giveroverlocation()
             print('-------------------------------')
@@ -66,8 +33,18 @@ class Rover:
                 if val == 'f':
                     self.y += 1
 
+                    if [self.x, self.y] in planet.obstaclelist:  # checks if the rover encounters an obstacle
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.y -= 1
+                        return True
+
                 elif val == 'b':
                     self.y -= 1
+
+                    if [self.x, self.y] in planet.obstaclelist:
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.y += 1
+                        return True
 
                 elif val == 'r':
                     self.orientation = 'E'
@@ -83,8 +60,18 @@ class Rover:
                 if val == 'f':
                     self.x += 1
 
+                    if [self.x, self.y] in planet.obstaclelist:
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.x -= 1
+                        return True
+
                 elif val == 'b':
                     self.x -= 1
+
+                    if [self.x, self.y] in planet.obstaclelist:
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.x += 1
+                        return True
 
                 elif val == 'r':
                     self.orientation = 'S'
@@ -100,8 +87,19 @@ class Rover:
                 if val == 'f':
                     self.y -= 1
 
+                    if [self.x, self.y] in planet.obstaclelist:
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.y += 1
+
+                        return True
+
                 elif val == 'b':
                     self.y += 1
+
+                    if [self.x, self.y] in planet.obstaclelist:
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.y -= 1
+                        return True
 
                 elif val == 'r':
                     self.orientation = 'W'
@@ -117,8 +115,18 @@ class Rover:
                 if val == 'f':
                     self.x -= 1
 
+                    if [self.x, self.y] in planet.obstaclelist:
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.x += 1
+                        return True
+
                 elif val == 'b':
                     self.x += 1
+
+                    if [self.x, self.y] in planet.obstaclelist:
+                        print('the rover encountered an obstacle on {}:{} and stopped it\'s movement'.format(self.x, self.y))
+                        self.x -= 1
+                        return True
 
                 elif val == 'r':
                     self.orientation = 'N'
@@ -134,4 +142,5 @@ class Rover:
 
     def giveroverlocation(self):
         print('The rover is on %d : %d facing %s' % (self.x, self.y, self.orientation))
+        print('-------------------------------')
 
