@@ -6,5 +6,11 @@ class Planet:
         self.obstaclelist = []
 
     def addobstacle(self, obstaclex, obstacley):
-        obstacle = [obstaclex, obstacley]
-        self.obstaclelist.append(obstacle)
+        if obstaclex == int and obstacley == int:
+            obstacle = [obstaclex, obstacley]
+            self.obstaclelist.append(obstacle)
+            return True
+        else:
+            print('!!!ERROR!!! \n the coordinates for the obstacle are wrong. The obstacle has not been created'
+                  '\n-------------------------------')
+            return False

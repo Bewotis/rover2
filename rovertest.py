@@ -15,20 +15,24 @@ class RoverTestCase(unittest.TestCase):
 
     def test_will_rover_move(self):
         givecommands = ['f', 'r', 'f', 'f']  # these are the commands that should be executed
-        # Rover.readcommands(rover, givecommands)
-        # Rover.giveroverlocation(rover)
         self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
 
     def test_will_rover_refuse_unknown_commands(self):
         givecommands = ['s', 'n', 'a', 'r']  # these are the commands that should be executed
-        # Rover.readcommands(rover, givecommands)
-        # Rover.giveroverlocation(rover)
         self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
 
     def test_will_rover_refuse_numeric_commands(self):
         givecommands = [3, 2, 5.2, 'r']  # these are the commands that should be executed
-        # Rover.readcommands(rover, givecommands)
-        # Rover.giveroverlocation(rover)
+        self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
+
+    def test_will_rover_stop_at_obstacle(self):
+        self.planet.addobstacle(1, 2)
+        givecommands = ['f', 'f', 'r', 'f', 'f', 'b']
+        self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
+
+    def test_will_false_obstacle_input_be_ignored(self):
+        self.planet.addobstacle('sboj', 'adbiun')
+        givecommands = ['f', 'f', 'r', 'f', 'f', 'b']
         self.assertTrue(Rover.readcommands(self.rover, givecommands, self.planet), msg=Rover.giveroverlocation(self.rover))
 
 
