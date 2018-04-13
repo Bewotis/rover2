@@ -46,39 +46,39 @@ class UserInput:
                             answer = False
 
                 y = int(input('What should be the y coordinate?'))
-                if 0 <= y <= planet.maxx:
+                if 0 <= y <= planet.maxy:
                     answer = True
                 else:
                     print('your chosen location is not on the grid, please choose another y coordinate \n--------------------------------')
                     answer = False
                     while answer == False:
                         y = int(input('What should be the y coordinate? '))
-                        if 0 <= y <= planet.maxx:
+                        if 0 <= y <= planet.maxy:
                             answer = True
                         else:
                             print(
                                 'your chosen location is not on the grid, please choose another y coordinate \n--------------------------------')
                             answer = False
 
-                orientation = input('What should be the orientation (N, E, S, W')
+                orientation = input('What should be the orientation (N, E, S, W) ')
                 if orientation in ['N', 'E', 'S', 'W']:
                     answer = True
                 else:
                     print('your chosen orientation is not possible, please choose another orientation \n--------------------------------')
                     answer = False
                     while answer == False:
-                        orientation = input('What should be the orientation (N, E, S, W? ')
+                        orientation = input('What should be the orientation (N, E, S, W)? ')
                         if orientation in ['N', 'E', 'S', 'W']:
                             answer = True
                         else:
                             print('your chosen orientation is not possible, please choose another orientation \n--------------------------------')
-                            answer = False # working to get the orientation input running
+                            answer = False
 
-                rover = Rover(x, y, planet)
+                rover = Rover(x, y, planet, orientation)
 
                 mvervr = input('Do you want to move the rover?')
                 if mvervr == 'yes':
-                    commands = [str(x) for x in input('Please input the commands you want to execute (f, b, l, r').split()]
+                    commands = [str(x) for x in input('Please input the commands you want to execute (f, b, l, r)').split()]
 
 
         if choice == 'Venus':
