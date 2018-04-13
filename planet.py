@@ -6,7 +6,7 @@ class Planet:
         self.obstaclelist = []
 
     def addobstacle(self, obstaclex, obstacley):
-        if obstaclex == int and obstacley == int:
+        if isinstance(obstaclex, int) and isinstance(obstacley, int):
             obstacle = [obstaclex, obstacley]
             self.obstaclelist.append(obstacle)
             return True
